@@ -2,3 +2,38 @@
     margin: 0;
     padding: 0;
 }
+
+body {
+    display: grid;
+    grid-template-areas: 
+        "dashboard header header header"
+        "dashboard main   main   announcements"
+        "dashboard main   main   announcements"
+        "dashboard main   main   trending"
+        "dashboard main   main   trending"
+}
+
+header {
+    grid-area: header;
+}
+
+nav {
+    grid-area: dashboard;
+    display: grid;
+    background-color: #1992D4;
+}
+
+main {
+    grid-area: main;
+    background-color: #E2E8F0;
+}
+
+aside.announcements {
+    grid-area: announcements;
+    background-color: #E2E8F0;
+}
+
+aside.trending {
+    grid-area: trending;
+    background-color: #E2E8F0;
+}
