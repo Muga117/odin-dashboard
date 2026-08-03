@@ -1,4 +1,236 @@
+@font-face {
+    font-family: 'robotoitalic';
+    src: url('assets/roboto-italic-variablefont_wdthwght-webfont.woff2') format('woff2'),
+         url('assets/roboto-italic-variablefont_wdthwght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'robotoregular';
+    src: url('assets/roboto-variablefont_wdthwght-webfont.woff2') format('woff2'),
+         url('assets/roboto-variablefont_wdthwght-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 * {
     margin: 0;
     padding: 0;
+    font-family: 'robotoregular'
+}
+
+body {
+    display: grid;
+    grid-template-areas: 
+        "dashboard header header"
+        "dashboard main   main"
+        "dashboard main   main";
+
+grid-template-columns: 1fr 2fr;
+}
+
+header {
+    grid-area: header;
+    display: grid;
+    grid-template-areas: 
+        "search user-info"
+        "greetings buttons";
+    padding: 15px;
+    row-gap: 10px;
+}
+
+.search-bar {
+    grid-area: search;
+    align-self: center;
+    display: flex;
+}
+
+.user-info {
+    grid-area: user-info;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.greetings {
+    grid-area: greetings;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: 50px;
+    gap: 10px;
+    align-items: center;
+}
+
+.user-info > p,
+.greetings > p {
+    font-weight: bold;
+}
+
+header > .button-container {
+    grid-area: buttons;
+    align-self: center;
+    justify-self: flex-end;
+    display: flex;
+}
+
+header > .button-container > button {
+    color: white;
+    background-color: #1992D4;
+    border: 0px;
+    border-radius: 25px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 8px;
+    margin-right: 8px;
+    flex: 1 0 90px;
+}
+
+input {
+    border: 0px;
+    border-radius: 15px;
+    background-color: #E2E8F0;
+    height: 25px;
+    flex: 1 0 auto;
+}
+
+.profile-pic {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: inline-block;
+    background-color: #bbb;
+}
+
+nav {
+    grid-area: dashboard;
+    background-color: #1992D4;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.dashboard-title,
+.navigation-link {
+    display:flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.first-container,
+.second-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+a {
+    text-decoration: none;
+    color: white
+}
+
+
+main {
+    grid-area: main;
+    background-color: #E2E8F0;
+    padding: 15px;
+    display: grid;
+    grid-template-areas: 
+        "projects announcements"
+        "projects trending";
+    grid-template-columns: 2fr 1fr;
+}
+
+.projects {
+    grid-area: projects;
+}
+
+.card-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.card {
+    background-color: white;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.card-container > .card {
+    border-left: 5px solid #F0B429;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.card-container > .card > .button-container {
+    align-self: flex-end;
+    display: flex;
+    gap: 20px;
+}
+
+.announcements {
+    grid-area: announcements;
+    padding: 15px;
+}
+
+.announcements-card-container > .card {
+    padding-bottom: 0px;
+}
+
+.announcements-card-container > .card:nth-child(2) > p:first-child {
+    border-top: 1px solid gray;
+    padding-top: 10px;
+}
+
+.announcements-card-container > .card:nth-child(2) > p:last-child {
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
+}
+
+.announcements-card-container > .card:last-child {
+    padding-bottom: 20px;
+}
+
+.trending {
+    grid-area: trending;
+    padding: 15px;
+}
+
+.trending-card-container,
+.announcements-card-container {
+    background-color: white;
+    border-radius: 5px;
+}
+
+.trending-card-container > .card{
+    display: flex;
+    gap: 10px;
+}
+
+.heading {
+    font-weight: bold;
+}
+
+.projects > .heading,
+.trending > .heading,
+.announcements > .heading {
+    margin-bottom: 10px;
 }
